@@ -1,0 +1,23 @@
+lock
+Bloquea al jugador (no puede moverse) hasta el próximo 'release'.
+
+release
+Desbloquea al jugador.
+
+faceplayer
+El sprite del evento te mira.
+
+msgbox @A 0xX
+Muestra un mensaje en textbox por pantalla.
+@A:  Offset de la string que se mostrará.
+X:   2 -> Bloquea automáticamente.
+     3 -> Sin lock ni faceplayer. Para postes.
+     4 -> Normal, pero se debe usar 'closeonkeypress'.
+     5 -> Abre Y/N box junto con el mensaje.
+     6 -> Sin lock ni faceplayer. Para NPCs.
+
+checkflag 0xX
+Comprueba el valor de una flag.
+x:   Número de la flag.
+
+if

@@ -1,0 +1,97 @@
+msgbox MSG TYPE [WAIT]
+Mostrar un mensaje en textbox por pantalla.
+MSG     string      Mensaje a mostrar.
+TYPE    ID          Tipo de mensaje a mostrar.
+                    LOCKMSG: Bloquea automáticamente.
+                    POSTMSG: Sin lock ni faceplayer. Para postes.
+                    CLOSEONKEYMSG: Normal, pero se debe usar 'closeonkeypress'.
+                    YESNOMSG: Abre Y/N box junto con el mensaje.
+                    NORMALMSG: Sin lock ni faceplayer. Para NPCs.
+WAIT    ID          Esperar a que se acepte el mensaje para continuar el script. Escribir 'WAIT' tal cual.
+
+setweather TYPE [NOW]
+Cambiar el clima.
+TYPE    ID          Tipo de clima al que se cambiará.
+                    NOWTHR: Nada.
+                    RAIN: Lluvia.
+                    SNOWFLAKES: Nieve.
+                    STORM: Tormenta.
+                    FOG: Niebla.
+                    ASHES: Cenizas.
+                    SANDSTORM: Tormenta de arena.
+                    FOGALT: Niebla 2.
+                    LIGHTFOG: Niebla más ligera.
+                    NIGHT: Oscuridad (noche).
+                    OVERHEAT: Sofoco.
+                    STORMALT: Tormenta 2.
+                    UNDERWATER: Bajo el agua.
+NOW     ID          Si se quiere cambiar el clima instantáneamente. Si no, se tendrá que usar posteriormente el comando 'doweather'. Escribir 'NOW' tal cual.
+
+obtainitem MSG ITEM AMNT
+Entregar un objeto al jugador, mostrando un mensaje por pantalla.
+MSG     STRING      Mensaje a mostrar antes de dar el objeto.
+ITEM    DEC/HEX     Índice del objeto a dar.
+AMNT    DEC/HEX     Cantidad del objeto que se va a dar.
+
+pokeballitem ITEM AMNT
+Entregar un objeto al jugador, sin mostrar mensaje por pantalla. Para cuando el jugador encuentra items en el suelo.
+ITEM    DEC/HEX     Índice del objeto a dar.
+AMNT    DEC/HEX     Cantidad del objeto que se va a dar.
+
+sfx NUM
+Reproducir un efecto de sonido.
+NUM     DEC/HEX     Índice del efecto de sonido a reproducir.
+
+fanfare NUM
+Reproducir un efecto musical (fanfare).
+NUM     DEX/HEX     Índice del efecto musical a reproducir.
+
+bgm NUM
+Reproducir una canción.
+NUM     DEC/HEX     Índice de la canción a reproducir.
+
+move EV MOVES
+Mover un evento cualquiera.
+EV      DEC/HEX     Índice del evento a mover.
+MOVES   [ID]*       Lista de movimientos a aplicar sobre el evento.
+
+moveplayer MOVES
+Mover al jugador.
+MOVES   [ID]*       Lista de movimientos a aplicar sobre el jugador.
+
+movecamera MOVES
+Mover la cámara.
+MOVES   [ID]*       Lista de movimientos a aplicar sobre el jugador.
+
+special NUM [WAIT]
+Usar uno de los comandos 'special' preprogramados de la ROM.
+NUM     DEC/HEX     Número del 'special' a usar.
+WAIT    ID          Esperar a que acabe el 'special' para continuar el script. Escribir 'WAIT' tal cual.
+
+earthquake X Y REPS VEL
+Realizar un efecto de terremoto.
+X       DEC/HEX     Tiles en el eje X que se mueve la pantalla.
+Y       DEC/HEX     Tiles en el eje Y que se mueve la pantalla.
+REPS    DEC/HEX     Número de sacudidas que se realizan.
+VEL     DEC/HEX     Velocidad de las sacudidas. A mayor el número, más lento el movimiento.
+
+fade F
+Realizar un efecto de 'fade' de pantalla.
+F       ID          Tipo de efecto que se realiza.
+                    BTON: Negro a normal.
+                    NTOB: Normal a negro.
+                    WTON: Blanco a normal.
+                    NTOW: Normal a blanco.
+
+hidesprite EV
+Ocultar temporalmente (hasta el próximo 'showsprite' o hasta que se refresque el mapa) un sprite del mapa.
+EV      DEC/HEX     Número del evento del sprite a ocultar.
+
+hidespritef EV
+Ocultar permanentemente un sprite del mapa.
+EV      FLAG        Flag del evento del sprite a ocultar.
+
+showsprite EV
+Mostrar un sprite del mapa que estaba oculto (usando 'hidesprite', no sirve para aquellos ocultos mediante 'hidespritef').
+EV      DEC/HEX     Número del evento del sprite a mostrar.
+

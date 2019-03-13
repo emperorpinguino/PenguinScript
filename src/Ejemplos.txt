@@ -1,0 +1,191 @@
+Mensajes
+0x2     LOCKMSG
+0x3     POSTMSG
+0x4     CLOSEONKEYMSG
+0x5     YESNOMSG
+0x6     NORMALMSG
+
+Climas
+0x0     NOWTHR
+0x3     RAIN
+0x4     SNOWFLAKES
+0x5     STORM
+0x6     FOG
+0x7     ASHES
+0x8     SANDSTORM
+0x9     FOGALT
+0xA     LIGHTFOG
+0xB     NIGHT
+0xC     OVERHEAT
+0xD     STORMALT
+0xE     UNDERWATER
+0xF     NOWTHR
+
+warp b m n
+warpcoords b m [x,y]
+
+
+-----------------
+
+faceplayer;
+lock;
+msgbox "¿Eres [player]?" NORMALMSG;
+release;
+
+#dynamic 0x800000
+#org @inicio
+faceplayer
+lock
+msgbox @texto 0x6
+release
+end
+#org @texto
+= [red_fr]¿Eres [player]?
+
+-----------------
+
+msgbox "Eres [player]?" LOCKMSG;
+
+#dynamic 0x800000
+#org @inicio
+msgbox @texto 0x2
+end
+#org @texto
+= [red_fr]¿Eres [player]?
+
+-----------------
+
+_4000 = 1;
+_4000 = 0x1;
+
+setvar 0x4000 0x1
+
+-----------------
+
+if _4000 == 2
+if _4000 == 0x2
+
+compare 0x4000 0x2
+if 0x1
+
+-----------------
+
+if _4000 == 0 then
+    msgbox "hola" LOCKMSG WAIT;
+    _4000 = 1;
+end;
+
+#dynamic 0x800000
+#org @inicio
+compare 0x4000 0x0
+if 0x1 goto @inicio2
+end
+#org @inicio2
+msgbox @texto 0x2
+waitmsg
+setvar 0x4000 0x1
+end
+#org @texto
+= hola
+
+-----------------
+
+if _4000 == 0 then
+    msgbox "hola" LOCKMSG;
+    _4000 = 1;
+else
+    msgbox "adiós" LOCKMSG;
+end;
+
+#dynamic 0x800000
+#org @inicio
+compare 0x4000 0x0
+if 0x1 goto @inicio2
+msgbox @despedirse 0x2
+end
+#org @inicio2
+msgbox @texto 0x2
+setvar 0x4000 0x1
+end
+#org @texto
+= hola
+#org @despedirse
+= adiós
+
+----------------
+
+faceplayer;
+lock;
+if checkgender then
+    msgbox "Eres un tío" NORMALMSG;
+    release;
+else
+    msgbox "Eres una tía" NORMALMSG;
+    release;
+end;
+
+#dynamic 0x800000
+#org @inicio
+faceplayer
+lock
+checkgender
+compare 0x800D 0x0
+if 0x1 goto @eschico
+if 0x5 goto @eschica
+end
+#org @eschico
+msgbox @textochico 0x6
+release
+end
+#org @eschica
+msgbox @textochica 0x6
+release
+end
+#org @textochico
+= Eres un tío
+#org @textochica
+= Eres una tía
+
+---------------
+
+faceplayer;
+lock;
+if choice "¿Quieres leche?" then
+    msgbox "Has dicho sí" NORMALMSG;
+    release;
+else
+    msgbox "Has dicho no" NORMALMSG;
+    release;
+end;
+
+dynamic 0x80000
+#org @inicio
+faceplayer
+lock
+msgbox @texto 0x5
+compare lastresult 0x1
+if 0x1 goto @si
+msgbox @textono 0x6
+release
+end
+#org @si
+msgbox @textosi 0x6
+release
+end
+#org @textosi
+= Has dicho sí
+#org @textono
+= Has dicho no
+#org @texto
+= ¿Quieres leche?
+
+----------------
+
+msgbox "¡Bienvenido a Pueblo Sol!" POSTMSG;
+
+#dynamic 0x800000
+#org @inicio
+msgbox @texto 0x3
+end
+#org @texto
+= ¡Bienvenido a Pueblo Sol!
