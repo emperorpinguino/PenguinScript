@@ -1,4 +1,4 @@
-package compiler;
+package main.java.compiler;
 
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;

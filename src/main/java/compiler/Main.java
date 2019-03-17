@@ -1,4 +1,4 @@
-package UI;
+package main.java.compiler;
 
 
 import javafx.application.Application;
@@ -11,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("UI/UI.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("UI.fxml"));
         primaryStage.setTitle("PenguinScript");
         primaryStage.setScene(new Scene(root, 700, 400));
         primaryStage.show();

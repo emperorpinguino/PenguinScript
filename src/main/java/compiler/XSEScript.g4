@@ -1,9 +1,9 @@
 grammar XSEScript;
 
-program: instruction+;
+program: ((instruction '\n'+) | COMMENT)* (instruction | COMMENT);
 
     //instruction: ((v_assig | f_assig | instr) ';') | cond;
-    instruction: ((v_assig | f_assig | instr | cond) '\n'+) | COMMENT;
+    instruction: v_assig | f_assig | instr | cond;
 
         v_assig: VAR '=' value;
             value: (DEC_LIT | HEX_LIT);
@@ -17,7 +17,7 @@ program: instruction+;
                 tuple: '(' elem (',' elem)* ')';
                     elem: ID | DEC_LIT | HEX_LIT;
 
-        cond: IF b_expr '\n'+ program ( | ELSE '\n'+ program) END;
+        cond: IF b_expr '\n'+ program '\n'+ ( | ELSE '\n'+ program '\n'+) END;
             b_expr: CHECKGENDER | choice | (VAR op value) | FLAG;
                 choice: CHOICE STRING;
                 op: LT | EQ | GT | LE | GE | NE;
@@ -48,7 +48,7 @@ STRING: QUOTE .*? QUOTE;
 FLAG: 'f0x' [0-9A-F]+;
 VAR: 'v0x' [0-9A-F]+;
 HEX_LIT: '0x' [0-9A-F]+;
-COMMENT: '//' .*? '\n'+;
+COMMENT: '//' .*? ('\n'|EOF);
 DEC_LIT: [0-9]+;
 //FLAG: '$' [0-9]+;
 //VAR: '_' [0-9]+;

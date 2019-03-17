@@ -1,4 +1,4 @@
-package compiler;
+package main.java.compiler;
 
 public class ASTBuilder {
     public ASTBuilder(){

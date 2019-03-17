@@ -1,4 +1,4 @@
-package compiler;
+package main.java.compiler;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -82,9 +82,9 @@ public class CodeBuilder {
             // version = 0: RUBY
             // version = 1: FR
             if (version == 0)
-                fstream = new FileInputStream("src/movesruby.txt");
+                fstream = new FileInputStream("src/main/resources/movesruby.txt");
             else
-                fstream = new FileInputStream("src/movesfr.txt");
+                fstream = new FileInputStream("src/main/resources/movesfr.txt");
 
             BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
             String line;
@@ -272,7 +272,7 @@ public class CodeBuilder {
         System.out.println("Acaba checkGrammar");
     }
 
-    // Genera el código de un programa dado un compiler.AST
+    // Genera el código de un programa dado un main.java.compiler.AST
     public String build(AST<String> ast) {
         String code = "#dynamic 0x800000\n\n";
         ifFlows.put(0,0);
@@ -378,7 +378,7 @@ public class CodeBuilder {
         ifFlows.put(currentSection,progCount);
         section = progCount;
         progCount++;
-        ArrayList<Object> l = new ArrayList<>();
+        ArrayList<Object> l = new ArrayList();
         switch(cond.getChild(0).getValue().toString()) {
             case "checkgender":
                 code += "checkgender\n";

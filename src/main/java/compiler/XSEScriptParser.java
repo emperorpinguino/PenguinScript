@@ -1,10 +1,9 @@
-package compiler;// Generated from C:/Users/adris/IdeaProjects/PoleParser/src\XSEScript.g4 by ANTLR 4.7.2
-
-import org.antlr.v4.runtime.*;
+// Generated from C:/Users/adris/IdeaProjects/PenguinScript/src/main.java.compiler\XSEScript.g4 by ANTLR 4.7.2
+package main.java.compiler;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
-
 import java.util.List;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
@@ -83,7 +82,7 @@ public class XSEScriptParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "compiler/XSEScript.g4"; }
+	public String getGrammarFileName() { return "XSEScript.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -106,17 +105,21 @@ public class XSEScriptParser extends Parser {
 		public InstructionContext instruction(int i) {
 			return getRuleContext(InstructionContext.class,i);
 		}
+		public List<TerminalNode> COMMENT() { return getTokens(XSEScriptParser.COMMENT); }
+		public TerminalNode COMMENT(int i) {
+			return getToken(XSEScriptParser.COMMENT, i);
+		}
 		public ProgramContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_program; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterProgram(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterProgram(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitProgram(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitProgram(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -130,22 +133,79 @@ public class XSEScriptParser extends Parser {
 		enterRule(_localctx, 0, RULE_program);
 		int _la;
 		try {
+			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(31); 
+			setState(39);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			do {
+			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					{
+					setState(37);
+					_errHandler.sync(this);
+					switch (_input.LA(1)) {
+					case IF:
+					case FLAG:
+					case VAR:
+					case COMMAND:
+						{
+						{
+						setState(30);
+						instruction();
+						setState(32); 
+						_errHandler.sync(this);
+						_la = _input.LA(1);
+						do {
+							{
+							{
+							setState(31);
+							match(T__0);
+							}
+							}
+							setState(34); 
+							_errHandler.sync(this);
+							_la = _input.LA(1);
+						} while ( _la==T__0 );
+						}
+						}
+						break;
+					case COMMENT:
+						{
+						setState(36);
+						match(COMMENT);
+						}
+						break;
+					default:
+						throw new NoViableAltException(this);
+					}
+					} 
+				}
+				setState(41);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+			}
+			setState(44);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case IF:
+			case FLAG:
+			case VAR:
+			case COMMAND:
 				{
-				{
-				setState(30);
+				setState(42);
 				instruction();
 				}
+				break;
+			case COMMENT:
+				{
+				setState(43);
+				match(COMMENT);
 				}
-				setState(33); 
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << IF) | (1L << FLAG) | (1L << VAR) | (1L << COMMENT) | (1L << COMMAND))) != 0) );
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -172,18 +232,17 @@ public class XSEScriptParser extends Parser {
 		public CondContext cond() {
 			return getRuleContext(CondContext.class,0);
 		}
-		public TerminalNode COMMENT() { return getToken(XSEScriptParser.COMMENT, 0); }
 		public InstructionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_instruction; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterInstruction(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterInstruction(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitInstruction(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitInstruction(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -195,70 +254,36 @@ public class XSEScriptParser extends Parser {
 	public final InstructionContext instruction() throws RecognitionException {
 		InstructionContext _localctx = new InstructionContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_instruction);
-		int _la;
 		try {
-			setState(47);
+			setState(50);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case IF:
-			case FLAG:
 			case VAR:
-			case COMMAND:
 				enterOuterAlt(_localctx, 1);
 				{
-				{
-				setState(39);
-				_errHandler.sync(this);
-				switch (_input.LA(1)) {
-				case VAR:
-					{
-					setState(35);
-					v_assig();
-					}
-					break;
-				case FLAG:
-					{
-					setState(36);
-					f_assig();
-					}
-					break;
-				case COMMAND:
-					{
-					setState(37);
-					instr();
-					}
-					break;
-				case IF:
-					{
-					setState(38);
-					cond();
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
-				}
-				setState(42); 
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				do {
-					{
-					{
-					setState(41);
-					match(T__0);
-					}
-					}
-					setState(44); 
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				} while ( _la==T__0 );
-				}
+				setState(46);
+				v_assig();
 				}
 				break;
-			case COMMENT:
+			case FLAG:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(46);
-				match(COMMENT);
+				setState(47);
+				f_assig();
+				}
+				break;
+			case COMMAND:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(48);
+				instr();
+				}
+				break;
+			case IF:
+				enterOuterAlt(_localctx, 4);
+				{
+				setState(49);
+				cond();
 				}
 				break;
 			default:
@@ -288,11 +313,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_v_assig; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterV_assig(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterV_assig(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitV_assig(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitV_assig(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -307,11 +332,11 @@ public class XSEScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(49);
+			setState(52);
 			match(VAR);
-			setState(50);
+			setState(53);
 			match(ASSIG);
-			setState(51);
+			setState(54);
 			value();
 			}
 		}
@@ -335,11 +360,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_value; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterValue(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterValue(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitValue(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitValue(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -355,7 +380,7 @@ public class XSEScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(53);
+			setState(56);
 			_la = _input.LA(1);
 			if ( !(_la==HEX_LIT || _la==DEC_LIT) ) {
 			_errHandler.recoverInline(this);
@@ -390,11 +415,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_f_assig; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterF_assig(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterF_assig(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitF_assig(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitF_assig(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -409,11 +434,11 @@ public class XSEScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(55);
+			setState(58);
 			match(FLAG);
-			setState(56);
+			setState(59);
 			match(ASSIG);
-			setState(57);
+			setState(60);
 			bool();
 			}
 		}
@@ -437,11 +462,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_bool; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterBool(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterBool(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitBool(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitBool(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -457,7 +482,7 @@ public class XSEScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(59);
+			setState(62);
 			_la = _input.LA(1);
 			if ( !(_la==TRUE || _la==FALSE) ) {
 			_errHandler.recoverInline(this);
@@ -494,11 +519,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_instr; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterInstr(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterInstr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitInstr(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitInstr(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -514,19 +539,19 @@ public class XSEScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(61);
+			setState(64);
 			match(COMMAND);
-			setState(65);
+			setState(68);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << T__4) | (1L << STRING) | (1L << FLAG) | (1L << HEX_LIT) | (1L << DEC_LIT) | (1L << ID))) != 0)) {
 				{
 				{
-				setState(62);
+				setState(65);
 				args();
 				}
 				}
-				setState(67);
+				setState(70);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -562,11 +587,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_args; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterArgs(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterArgs(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitArgs(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitArgs(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -579,20 +604,20 @@ public class XSEScriptParser extends Parser {
 		ArgsContext _localctx = new ArgsContext(_ctx, getState());
 		enterRule(_localctx, 14, RULE_args);
 		try {
-			setState(74);
+			setState(77);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case STRING:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(68);
+				setState(71);
 				match(STRING);
 				}
 				break;
 			case ID:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(69);
+				setState(72);
 				match(ID);
 				}
 				break;
@@ -600,28 +625,28 @@ public class XSEScriptParser extends Parser {
 			case DEC_LIT:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(70);
+				setState(73);
 				value();
 				}
 				break;
 			case T__1:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(71);
+				setState(74);
 				list();
 				}
 				break;
 			case T__4:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(72);
+				setState(75);
 				tuple();
 				}
 				break;
 			case FLAG:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(73);
+				setState(76);
 				match(FLAG);
 				}
 				break;
@@ -653,11 +678,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_list; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterList(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterList(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitList(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitList(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -673,9 +698,9 @@ public class XSEScriptParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(76);
+			setState(79);
 			match(T__1);
-			setState(87);
+			setState(90);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__3:
@@ -686,32 +711,32 @@ public class XSEScriptParser extends Parser {
 			case DEC_LIT:
 			case ID:
 				{
-				setState(83);
+				setState(86);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
 				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(78);
+						setState(81);
 						elem();
-						setState(79);
+						setState(82);
 						match(T__2);
 						}
 						} 
 					}
-					setState(85);
+					setState(88);
 					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+					_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
 				}
-				setState(86);
+				setState(89);
 				elem();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(89);
+			setState(92);
 			match(T__3);
 			}
 		}
@@ -739,11 +764,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_tuple; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterTuple(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterTuple(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitTuple(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitTuple(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -759,27 +784,27 @@ public class XSEScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(91);
+			setState(94);
 			match(T__4);
-			setState(92);
+			setState(95);
 			elem();
-			setState(97);
+			setState(100);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__2) {
 				{
 				{
-				setState(93);
+				setState(96);
 				match(T__2);
-				setState(94);
+				setState(97);
 				elem();
 				}
 				}
-				setState(99);
+				setState(102);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(100);
+			setState(103);
 			match(T__5);
 			}
 		}
@@ -804,11 +829,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_elem; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterElem(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterElem(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitElem(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitElem(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -824,7 +849,7 @@ public class XSEScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(102);
+			setState(105);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << HEX_LIT) | (1L << DEC_LIT) | (1L << ID))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -866,11 +891,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_cond; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterCond(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterCond(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitCond(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitCond(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -886,27 +911,41 @@ public class XSEScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(104);
+			setState(107);
 			match(IF);
-			setState(105);
+			setState(108);
 			b_expr();
-			setState(107); 
+			setState(110); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(106);
+				setState(109);
 				match(T__0);
 				}
 				}
-				setState(109); 
+				setState(112); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__0 );
-			setState(111);
+			setState(114);
 			program();
-			setState(120);
+			setState(116); 
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			do {
+				{
+				{
+				setState(115);
+				match(T__0);
+				}
+				}
+				setState(118); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			} while ( _la==T__0 );
+			setState(133);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case END:
@@ -915,30 +954,44 @@ public class XSEScriptParser extends Parser {
 				break;
 			case ELSE:
 				{
-				setState(113);
+				setState(121);
 				match(ELSE);
-				setState(115); 
+				setState(123); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(114);
+					setState(122);
 					match(T__0);
 					}
 					}
-					setState(117); 
+					setState(125); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( _la==T__0 );
-				setState(119);
+				setState(127);
 				program();
+				setState(129); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				do {
+					{
+					{
+					setState(128);
+					match(T__0);
+					}
+					}
+					setState(131); 
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				} while ( _la==T__0 );
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(122);
+			setState(135);
 			match(END);
 			}
 		}
@@ -972,11 +1025,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_b_expr; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterB_expr(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterB_expr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitB_expr(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitB_expr(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -989,20 +1042,20 @@ public class XSEScriptParser extends Parser {
 		B_exprContext _localctx = new B_exprContext(_ctx, getState());
 		enterRule(_localctx, 24, RULE_b_expr);
 		try {
-			setState(131);
+			setState(144);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case CHECKGENDER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(124);
+				setState(137);
 				match(CHECKGENDER);
 				}
 				break;
 			case CHOICE:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(125);
+				setState(138);
 				choice();
 				}
 				break;
@@ -1010,11 +1063,11 @@ public class XSEScriptParser extends Parser {
 				enterOuterAlt(_localctx, 3);
 				{
 				{
-				setState(126);
+				setState(139);
 				match(VAR);
-				setState(127);
+				setState(140);
 				op();
-				setState(128);
+				setState(141);
 				value();
 				}
 				}
@@ -1022,7 +1075,7 @@ public class XSEScriptParser extends Parser {
 			case FLAG:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(130);
+				setState(143);
 				match(FLAG);
 				}
 				break;
@@ -1050,11 +1103,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_choice; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterChoice(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterChoice(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitChoice(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitChoice(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -1069,9 +1122,9 @@ public class XSEScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(133);
+			setState(146);
 			match(CHOICE);
-			setState(134);
+			setState(147);
 			match(STRING);
 			}
 		}
@@ -1099,11 +1152,11 @@ public class XSEScriptParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_op; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).enterOp(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).enterOp(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof XSEScriptListener) ((XSEScriptListener)listener).exitOp(this);
+			if ( listener instanceof XSEScriptListener ) ((XSEScriptListener)listener).exitOp(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -1119,7 +1172,7 @@ public class XSEScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(136);
+			setState(149);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << EQ) | (1L << NE) | (1L << GE) | (1L << GT) | (1L << LE) | (1L << LT))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -1143,43 +1196,49 @@ public class XSEScriptParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3!\u008d\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3!\u009a\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
-		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\3\2\6\2\"\n\2\r\2\16"+
-		"\2#\3\3\3\3\3\3\3\3\5\3*\n\3\3\3\6\3-\n\3\r\3\16\3.\3\3\5\3\62\n\3\3\4"+
-		"\3\4\3\4\3\4\3\5\3\5\3\6\3\6\3\6\3\6\3\7\3\7\3\b\3\b\7\bB\n\b\f\b\16\b"+
-		"E\13\b\3\t\3\t\3\t\3\t\3\t\3\t\5\tM\n\t\3\n\3\n\3\n\3\n\3\n\7\nT\n\n\f"+
-		"\n\16\nW\13\n\3\n\5\nZ\n\n\3\n\3\n\3\13\3\13\3\13\3\13\7\13b\n\13\f\13"+
-		"\16\13e\13\13\3\13\3\13\3\f\3\f\3\r\3\r\3\r\6\rn\n\r\r\r\16\ro\3\r\3\r"+
-		"\3\r\3\r\6\rv\n\r\r\r\16\rw\3\r\5\r{\n\r\3\r\3\r\3\16\3\16\3\16\3\16\3"+
-		"\16\3\16\3\16\5\16\u0086\n\16\3\17\3\17\3\17\3\20\3\20\3\20\2\2\21\2\4"+
-		"\6\b\n\f\16\20\22\24\26\30\32\34\36\2\6\4\2\35\35\37\37\3\2\26\27\5\2"+
-		"\35\35\37\37!!\3\2\f\21\2\u0092\2!\3\2\2\2\4\61\3\2\2\2\6\63\3\2\2\2\b"+
-		"\67\3\2\2\2\n9\3\2\2\2\f=\3\2\2\2\16?\3\2\2\2\20L\3\2\2\2\22N\3\2\2\2"+
-		"\24]\3\2\2\2\26h\3\2\2\2\30j\3\2\2\2\32\u0085\3\2\2\2\34\u0087\3\2\2\2"+
-		"\36\u008a\3\2\2\2 \"\5\4\3\2! \3\2\2\2\"#\3\2\2\2#!\3\2\2\2#$\3\2\2\2"+
-		"$\3\3\2\2\2%*\5\6\4\2&*\5\n\6\2\'*\5\16\b\2(*\5\30\r\2)%\3\2\2\2)&\3\2"+
-		"\2\2)\'\3\2\2\2)(\3\2\2\2*,\3\2\2\2+-\7\3\2\2,+\3\2\2\2-.\3\2\2\2.,\3"+
-		"\2\2\2./\3\2\2\2/\62\3\2\2\2\60\62\7\36\2\2\61)\3\2\2\2\61\60\3\2\2\2"+
-		"\62\5\3\2\2\2\63\64\7\34\2\2\64\65\7\13\2\2\65\66\5\b\5\2\66\7\3\2\2\2"+
-		"\678\t\2\2\28\t\3\2\2\29:\7\33\2\2:;\7\13\2\2;<\5\f\7\2<\13\3\2\2\2=>"+
-		"\t\3\2\2>\r\3\2\2\2?C\7 \2\2@B\5\20\t\2A@\3\2\2\2BE\3\2\2\2CA\3\2\2\2"+
-		"CD\3\2\2\2D\17\3\2\2\2EC\3\2\2\2FM\7\32\2\2GM\7!\2\2HM\5\b\5\2IM\5\22"+
-		"\n\2JM\5\24\13\2KM\7\33\2\2LF\3\2\2\2LG\3\2\2\2LH\3\2\2\2LI\3\2\2\2LJ"+
-		"\3\2\2\2LK\3\2\2\2M\21\3\2\2\2NY\7\4\2\2OZ\3\2\2\2PQ\5\26\f\2QR\7\5\2"+
-		"\2RT\3\2\2\2SP\3\2\2\2TW\3\2\2\2US\3\2\2\2UV\3\2\2\2VX\3\2\2\2WU\3\2\2"+
-		"\2XZ\5\26\f\2YO\3\2\2\2YU\3\2\2\2Z[\3\2\2\2[\\\7\6\2\2\\\23\3\2\2\2]^"+
-		"\7\7\2\2^c\5\26\f\2_`\7\5\2\2`b\5\26\f\2a_\3\2\2\2be\3\2\2\2ca\3\2\2\2"+
-		"cd\3\2\2\2df\3\2\2\2ec\3\2\2\2fg\7\b\2\2g\25\3\2\2\2hi\t\4\2\2i\27\3\2"+
-		"\2\2jk\7\22\2\2km\5\32\16\2ln\7\3\2\2ml\3\2\2\2no\3\2\2\2om\3\2\2\2op"+
-		"\3\2\2\2pq\3\2\2\2qz\5\2\2\2r{\3\2\2\2su\7\24\2\2tv\7\3\2\2ut\3\2\2\2"+
-		"vw\3\2\2\2wu\3\2\2\2wx\3\2\2\2xy\3\2\2\2y{\5\2\2\2zr\3\2\2\2zs\3\2\2\2"+
-		"{|\3\2\2\2|}\7\25\2\2}\31\3\2\2\2~\u0086\7\30\2\2\177\u0086\5\34\17\2"+
-		"\u0080\u0081\7\34\2\2\u0081\u0082\5\36\20\2\u0082\u0083\5\b\5\2\u0083"+
-		"\u0086\3\2\2\2\u0084\u0086\7\33\2\2\u0085~\3\2\2\2\u0085\177\3\2\2\2\u0085"+
-		"\u0080\3\2\2\2\u0085\u0084\3\2\2\2\u0086\33\3\2\2\2\u0087\u0088\7\31\2"+
-		"\2\u0088\u0089\7\32\2\2\u0089\35\3\2\2\2\u008a\u008b\t\5\2\2\u008b\37"+
-		"\3\2\2\2\17#).\61CLUYcowz\u0085";
+		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\3\2\3\2\6\2#\n\2\r\2"+
+		"\16\2$\3\2\7\2(\n\2\f\2\16\2+\13\2\3\2\3\2\5\2/\n\2\3\3\3\3\3\3\3\3\5"+
+		"\3\65\n\3\3\4\3\4\3\4\3\4\3\5\3\5\3\6\3\6\3\6\3\6\3\7\3\7\3\b\3\b\7\b"+
+		"E\n\b\f\b\16\bH\13\b\3\t\3\t\3\t\3\t\3\t\3\t\5\tP\n\t\3\n\3\n\3\n\3\n"+
+		"\3\n\7\nW\n\n\f\n\16\nZ\13\n\3\n\5\n]\n\n\3\n\3\n\3\13\3\13\3\13\3\13"+
+		"\7\13e\n\13\f\13\16\13h\13\13\3\13\3\13\3\f\3\f\3\r\3\r\3\r\6\rq\n\r\r"+
+		"\r\16\rr\3\r\3\r\6\rw\n\r\r\r\16\rx\3\r\3\r\3\r\6\r~\n\r\r\r\16\r\177"+
+		"\3\r\3\r\6\r\u0084\n\r\r\r\16\r\u0085\5\r\u0088\n\r\3\r\3\r\3\16\3\16"+
+		"\3\16\3\16\3\16\3\16\3\16\5\16\u0093\n\16\3\17\3\17\3\17\3\20\3\20\3\20"+
+		"\2\2\21\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36\2\6\4\2\35\35\37\37\3\2"+
+		"\26\27\5\2\35\35\37\37!!\3\2\f\21\2\u00a2\2)\3\2\2\2\4\64\3\2\2\2\6\66"+
+		"\3\2\2\2\b:\3\2\2\2\n<\3\2\2\2\f@\3\2\2\2\16B\3\2\2\2\20O\3\2\2\2\22Q"+
+		"\3\2\2\2\24`\3\2\2\2\26k\3\2\2\2\30m\3\2\2\2\32\u0092\3\2\2\2\34\u0094"+
+		"\3\2\2\2\36\u0097\3\2\2\2 \"\5\4\3\2!#\7\3\2\2\"!\3\2\2\2#$\3\2\2\2$\""+
+		"\3\2\2\2$%\3\2\2\2%(\3\2\2\2&(\7\36\2\2\' \3\2\2\2\'&\3\2\2\2(+\3\2\2"+
+		"\2)\'\3\2\2\2)*\3\2\2\2*.\3\2\2\2+)\3\2\2\2,/\5\4\3\2-/\7\36\2\2.,\3\2"+
+		"\2\2.-\3\2\2\2/\3\3\2\2\2\60\65\5\6\4\2\61\65\5\n\6\2\62\65\5\16\b\2\63"+
+		"\65\5\30\r\2\64\60\3\2\2\2\64\61\3\2\2\2\64\62\3\2\2\2\64\63\3\2\2\2\65"+
+		"\5\3\2\2\2\66\67\7\34\2\2\678\7\13\2\289\5\b\5\29\7\3\2\2\2:;\t\2\2\2"+
+		";\t\3\2\2\2<=\7\33\2\2=>\7\13\2\2>?\5\f\7\2?\13\3\2\2\2@A\t\3\2\2A\r\3"+
+		"\2\2\2BF\7 \2\2CE\5\20\t\2DC\3\2\2\2EH\3\2\2\2FD\3\2\2\2FG\3\2\2\2G\17"+
+		"\3\2\2\2HF\3\2\2\2IP\7\32\2\2JP\7!\2\2KP\5\b\5\2LP\5\22\n\2MP\5\24\13"+
+		"\2NP\7\33\2\2OI\3\2\2\2OJ\3\2\2\2OK\3\2\2\2OL\3\2\2\2OM\3\2\2\2ON\3\2"+
+		"\2\2P\21\3\2\2\2Q\\\7\4\2\2R]\3\2\2\2ST\5\26\f\2TU\7\5\2\2UW\3\2\2\2V"+
+		"S\3\2\2\2WZ\3\2\2\2XV\3\2\2\2XY\3\2\2\2Y[\3\2\2\2ZX\3\2\2\2[]\5\26\f\2"+
+		"\\R\3\2\2\2\\X\3\2\2\2]^\3\2\2\2^_\7\6\2\2_\23\3\2\2\2`a\7\7\2\2af\5\26"+
+		"\f\2bc\7\5\2\2ce\5\26\f\2db\3\2\2\2eh\3\2\2\2fd\3\2\2\2fg\3\2\2\2gi\3"+
+		"\2\2\2hf\3\2\2\2ij\7\b\2\2j\25\3\2\2\2kl\t\4\2\2l\27\3\2\2\2mn\7\22\2"+
+		"\2np\5\32\16\2oq\7\3\2\2po\3\2\2\2qr\3\2\2\2rp\3\2\2\2rs\3\2\2\2st\3\2"+
+		"\2\2tv\5\2\2\2uw\7\3\2\2vu\3\2\2\2wx\3\2\2\2xv\3\2\2\2xy\3\2\2\2y\u0087"+
+		"\3\2\2\2z\u0088\3\2\2\2{}\7\24\2\2|~\7\3\2\2}|\3\2\2\2~\177\3\2\2\2\177"+
+		"}\3\2\2\2\177\u0080\3\2\2\2\u0080\u0081\3\2\2\2\u0081\u0083\5\2\2\2\u0082"+
+		"\u0084\7\3\2\2\u0083\u0082\3\2\2\2\u0084\u0085\3\2\2\2\u0085\u0083\3\2"+
+		"\2\2\u0085\u0086\3\2\2\2\u0086\u0088\3\2\2\2\u0087z\3\2\2\2\u0087{\3\2"+
+		"\2\2\u0088\u0089\3\2\2\2\u0089\u008a\7\25\2\2\u008a\31\3\2\2\2\u008b\u0093"+
+		"\7\30\2\2\u008c\u0093\5\34\17\2\u008d\u008e\7\34\2\2\u008e\u008f\5\36"+
+		"\20\2\u008f\u0090\5\b\5\2\u0090\u0093\3\2\2\2\u0091\u0093\7\33\2\2\u0092"+
+		"\u008b\3\2\2\2\u0092\u008c\3\2\2\2\u0092\u008d\3\2\2\2\u0092\u0091\3\2"+
+		"\2\2\u0093\33\3\2\2\2\u0094\u0095\7\31\2\2\u0095\u0096\7\32\2\2\u0096"+
+		"\35\3\2\2\2\u0097\u0098\t\5\2\2\u0098\37\3\2\2\2\22$\').\64FOX\\frx\177"+
+		"\u0085\u0087\u0092";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

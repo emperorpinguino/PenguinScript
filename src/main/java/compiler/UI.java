@@ -1,6 +1,5 @@
-package UI;
+package main.java.compiler;
 
-import compiler.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -163,7 +162,7 @@ public class UI {
                 version = 0;
             else
                 version = 1;
-            compiler.CodeBuilder c = new compiler.CodeBuilder(version);
+            CodeBuilder c = new CodeBuilder(version);
             String code = c.build(ast);
             textArea2.setText(code);
         }

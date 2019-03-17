@@ -1,4 +1,5 @@
-package compiler;// Generated from C:/Users/adris/IdeaProjects/PoleParser/src\XSEScript.g4 by ANTLR 4.7.2
+// Generated from C:/Users/adris/IdeaProjects/PenguinScript/src/main.java.compiler\XSEScript.g4 by ANTLR 4.7.2
+package main.java.compiler;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
